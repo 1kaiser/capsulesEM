@@ -26,6 +26,10 @@ def capsules_v0(inputs, num_classes, iterations, name='CapsuleEM-V0'):
       nets, shape=[1, 1, 32, 32], strides=[1, 1, 1, 1], padding='VALID', pose_shape=[4, 4], name='capsule_init'
     )
     # inputs: (poses, activations) -> capsule-conv 3x3x32x32x4x4, strides 2 -> (poses, activations)
+     nets = capsules_conv(
+      nets, shape=[3, 3, 32, 32], strides=[1, 3, 3, 1], iterations=iterations, name='capsule_conv0'
+    )
+  
     nets = capsules_conv(
       nets, shape=[3, 3, 32, 32], strides=[1, 2, 2, 1], iterations=iterations, name='capsule_conv1'
     )
