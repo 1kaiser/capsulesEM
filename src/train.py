@@ -1,6 +1,6 @@
 """A train script for matrix capsule with EM routing."""
 
-from settings import _init_
+from settings import __init__
 
 def main(_):
 
